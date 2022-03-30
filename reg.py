@@ -8,6 +8,7 @@ from flask import render_template
 app=Flask(__name__)
 app.secret_key = '__privatekey__'
 connection =sqlite3.connect("user1.db")
+
 cursor = connection.cursor()
 
 
@@ -27,8 +28,10 @@ def home():
         
         cursor.execute('SELECT * FROM users WHERE emailaddress = ? AND password = ?', (email, password))
         account = cursor.fetchone()
+        print(account)
         if account:
             # session['loggedin'] = True
+            
             session['email'] = account[1]
             session['password'] = account[3]
             msg = 'Logged in successfully !'
@@ -44,10 +47,10 @@ def home():
 @app.route('/Register', methods =['GET', 'POST'])
 def register():
     msg = ''
-    if request.method == 'POST' and 'name' in request.form and 'email-address' in request.form and'password' in request.form :
+    if request.method == 'POST' and 'name' in request.form and 'Email' in request.form and'pass' in request.form :
         name = request.form['name']
-        Email = request.form['email-address']
-        Password = request.form['password']
+        Email = request.form['Email']
+        Password = request.form['pass']
         
         
         
