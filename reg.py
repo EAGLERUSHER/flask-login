@@ -26,14 +26,38 @@ def home():
         email = request.form['email']
         password = request.form['password']
         
+        cursor.execute('SELECT * FROM users WHERE emailaddress = ? AND password = ?', (email, password, ))
+        account = cursor.fetchone()
+        if account:
+            # session['loggedin'] = True
+            session['email'] = account[1]
+            session['password'] = account[2]
+            msg = 'Logged in successfully !'
+            print(msg)
+            return render_template('res.html', msg = msg)
+        else:
+            msg = 'Incorrect username / password !'
+            print(msg)
+            return render_template('error.html', msg = msg)
+    return render_template('index.html', msg = msg)
+
+# --------------------------------------------------------------------------------
+    
+    connection =sqlite3.connect("user1.db")
+    cursor = connection.cursor()
+    msg = ''
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        email = request.form['email']
+        password = request.form['password']
+        
         cursor.execute('SELECT * FROM users WHERE emailaddress = ? AND password = ?', (email, password))
         account = cursor.fetchone()
-        print(account)
+        
         if account:
             # session['loggedin'] = True
             
             session['email'] = account[1]
-            session['password'] = account[3]
+            session['password'] = account[2]
             msg = 'Logged in successfully !'
             print(msg)
             return render_template('res.html', msg = msg)

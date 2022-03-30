@@ -1,36 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Form validation</title>
-  <link rel="stylesheet" href="/static/css/index.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+   
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+    
+
+    
+    
+    <link href="/static/css/index.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
   <div class="wrapper">
+ 
+    
     <header>Login Form</header>
-    <form action="{{url_for('home')}}" method="post">
-      <div class="field email">
-        <div class="input-area">
-          <input type="text" placeholder="Email Address" name="email">
-          <i class="icon fas fa-envelope"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-        <div class="error error-txt">Email can't be blank</div>
-      </div>
-      <div class="field password">
-        <div class="input-area">
-          <input type="password" placeholder="Password" name="password">
-          <i class="icon fas fa-lock"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-        <div class="error error-txt">Password can't be blank</div>
-      </div>
-      <div class="pass-txt"><a href="#">Forgot password?</a></div>
-      <input type="submit" value="Login">
-    </form>
-    <div class="sign-txt">Not yet member? <a href="/Register">Signup now</a></div>
+    <form action="/index" method="post">
+    <div class="field email">
+      <div class="input-area">
+        
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+      
+    </div>
   </div>
-  <script src="./static/js/index.js"></script>
-</body>
+    <div class="field password">
+      <div class="input-area">
+       
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      
+    </div>
+  </div>
+  <div class="pass-txt"><a href="#">Forgot password?</a></div>
+    <input class="w-100 btn btn-lg btn-primary" type="submit"></input>
+    
+  </form>
+  <div class="sign-txt">Not yet member? <a href="/Register">Signup now</a></div>
+</div>
+</main>
+
+
+    
+  </body>
+  <script src="./static/js/home.js"></script>
 </html>
