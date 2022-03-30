@@ -35,7 +35,7 @@ Now, you are able to use all the blocks exported by the Login app. Check out the
 
 - [SQLite] - A light weigth datadase
 - [Flask] - A python Web Frame work
-- [Bootstrap] - great UI boilerplate for modern web apps
+- [HTML,CSS,JS] - great web UI
 
 
 
